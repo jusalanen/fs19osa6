@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
       const voted = state.find(anec => anec.id === id)
       const votedAnec = { ...voted, votes: voted.votes + 1 }
       
-      return state.map(anec => anec.id !== id ? anec : votedAnec )
+      return state.map(anec => anec.id !== id ? anec : votedAnec)
 
     case 'CREATE':
       return [...state, action.data]
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) => {
 export const voteAnecdote = (id) => {
   return {
     type: 'VOTE',
-    data: { id} 
+    data: { id } 
   }
 }
 
