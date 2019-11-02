@@ -1,31 +1,13 @@
-import React from 'react';
-import { voteAnecdote } from './reducers/anecdoteReducer'
+import React from 'react'
+import AnecdoteList from './components/AnecdoteList'
 import AnecdoteForm from './components/AnecdoteForm'
 
 const App = (props) => {
-  const anecdotes = props.store.getState().sort((a, b) =>
-    b.votes -a.votes)
-
-  const vote = (id) => {
-    console.log('vote', id)
-    props.store.dispatch(voteAnecdote(id))
-  }
-
   return (
     <div>
-      <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
-        <div key={anecdote.id}>
-          <div>
-            {anecdote.content}
-          </div>
-          <div>
-            has {anecdote.votes} <button onClick={() =>
-              vote(anecdote.id)}>vote</button>
-          </div>
-        </div>
-      )}
+      <h1>Anecdotes</h1>
       <AnecdoteForm store={props.store} />
+      <AnecdoteList store={props.store} />
     </div>
   )
 }
