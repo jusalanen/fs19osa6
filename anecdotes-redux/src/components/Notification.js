@@ -6,6 +6,7 @@ const Notification = (props) => {
     padding: 10,
     borderWidth: 1
   }
+  
   if (props.store.getState().notification === null) {
     return null
   }

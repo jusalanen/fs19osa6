@@ -6,13 +6,13 @@ const AnecdoteList = (props) => {
   const store = props.store
   const filter = store.getState().filter
   
-  const anecdotes = store.getState().anecdotes
-  .sort((a, b) => b.votes - a.votes)
+  const anecdotes = store.getState().anecdotes.sort(
+    (a, b) => b.votes - a.votes)
   
   const filteredAnecdotes = (anecdotes, filter) => {
     return anecdotes.filter(anecdote => 
       anecdote.content.toLowerCase().includes(filter.toLowerCase())
-      )
+    )
   }
 
   const vote = (id) => {

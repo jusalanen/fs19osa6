@@ -7,12 +7,11 @@ const AnecdoteForm = (props) => {
   
   const addAnecdote = (event) => {
     event.preventDefault()
-    console.log('create', event.target.anecdote.value)
     const content = event.target.anecdote.value
     if (content !== '') {
       store.dispatch(newAnecdote(content))
       event.target.anecdote.value = ''
-      store.dispatch(setMessage('You added "'  + content + '"'))
+      store.dispatch(setMessage('You added "' + content + '"'))
       setTimeout(() => store.dispatch(hideMessage()), 5000)
     }   
   }

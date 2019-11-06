@@ -7,7 +7,7 @@ const filterReducer = (state = '', action) => {
   }
 }
 
-export const setFilter = filter => {
+export const setFilter = (filter) => {
   return {
     type: 'SET_FILTER',
     data: filter

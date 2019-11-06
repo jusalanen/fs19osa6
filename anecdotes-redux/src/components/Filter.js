@@ -1,10 +1,10 @@
 import React from 'react'
 import { setFilter } from '../reducers/filterReducer'
 
-const Filter = (props) => {
+const Filter = props => {
   const store = props.store
   
-  const handleChange = (event) => {
+  const handleChange = event => {
     store.dispatch(setFilter(event.target.value))
   }
 
