@@ -19,9 +19,9 @@ const AnecdoteList = (props) => {
   const vote = (id) => {
     const voted = props.anecdotes.find(anec => anec.id === id)
     console.log('vote', id)
-    voteAnecdote(id)
-    setMessage('You voted "' + voted.content + '"')
-    setTimeout(() => hideMessage(), 5000)
+    props.voteAnecdote(id)
+    props.setMessage('You voted "' + voted.content + '"')
+    setTimeout(() => props.hideMessage(), 5000)
   }
 
   return (
