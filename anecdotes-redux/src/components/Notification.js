@@ -7,12 +7,12 @@ const Notification = (props) => {
     borderWidth: 1
   }
   
-  if (props.store.getState().notification === null) {
+  if (props.notification === null || props.notification === undefined) {
     return null
   }
   return (
     <div style={style}>
-      {props.store.getState().notification}
+      {props.notification}
     </div>
   )
 }
