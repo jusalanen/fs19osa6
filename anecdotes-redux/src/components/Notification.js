@@ -7,12 +7,12 @@ const Notification = (props) => {
     borderWidth: 1
   }
   
-  if (props.notification === null || props.notification === undefined) {
+  if (props.store.notification === null ) {
     return null
   }
   return (
     <div style={style}>
-      {props.notification}
+      {props.store.notification}
     </div>
   )
 }
