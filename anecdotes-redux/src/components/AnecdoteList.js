@@ -4,20 +4,9 @@ import { voteAnecdote } from '../reducers/anecdoteReducer'
 import { setMessage, hideMessage } from '../reducers/notificationReducer'
 
 const AnecdoteList = (props) => {
-  /*const store = props.store
-  /*const filter = store.getState().filter*/
   
-  const anecdotes = props.anecdotes.sort(
-    (a, b) => b.votes - a.votes)
-  
-  const filteredAnecdotes = (anecdotes, filter) => {
-    return anecdotes.filter(anecdote => 
-      anecdote.content.toLowerCase().includes(filter.toLowerCase())
-    )
-  }
-
   const vote = (id) => {
-    const voted = props.anecdotes.find(anec => anec.id === id)
+    const voted = props.visibleAnecdotes.find(anec => anec.id === id)
     console.log('vote', id)
     props.voteAnecdote(id)
     props.setMessage('You voted "' + voted.content + '"')
@@ -26,7 +15,7 @@ const AnecdoteList = (props) => {
 
   return (
   <div>
-    {filteredAnecdotes(anecdotes, props.filter).map(anecdote =>
+    {props.visibleAnecdotes.map(anecdote =>
       <div key={anecdote.id}>
         <div>
             {anecdote.content}
@@ -41,11 +30,19 @@ const AnecdoteList = (props) => {
   )
 }
 
+const anecdotesToShow = ({ anecdotes, filter }) => {
+  const sortedAnec = anecdotes.sort(
+    (a, b) => b.votes - a.votes)
+  
+  return sortedAnec.filter(anecdote => 
+    anecdote.content.toLowerCase().includes(filter.toLowerCase())
+  )
+}
+
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    anecdotes: state.anecdotes,
-    filter: state.filter
+    visibleAnecdotes: anecdotesToShow(state)
   }
 }
 
