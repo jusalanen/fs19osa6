@@ -18,7 +18,7 @@ const AnecdoteList = (props) => {
     {props.visibleAnecdotes.map(anecdote =>
       <div key={anecdote.id}>
         <div>
-            {anecdote.content}
+          {anecdote.content}
         </div>
         <div>
           has {anecdote.votes} <button onClick={() =>
