@@ -25,16 +25,16 @@ const AnecdoteList = (props) => {
             vote(anecdote.id)}>vote</button>
         </div>
       </div>
-    )}   
+    )}
   </div>
   )
 }
 
 const anecdotesToShow = ({ anecdotes, filter }) => {
-  const sortedAnec = anecdotes.sort(
+  const sortedAnecdotes = anecdotes.sort(
     (a, b) => b.votes - a.votes)
   
-  return sortedAnec.filter(anecdote => 
+  return sortedAnecdotes.filter(anecdote => 
     anecdote.content.toLowerCase().includes(filter.toLowerCase())
   )
 }
