@@ -8,7 +8,7 @@ const AnecdoteList = (props) => {
   const vote = (id) => {
     const voted = props.visibleAnecdotes.find(anec => anec.id === id)
     console.log('vote', id)
-    props.voteAnecdote(id)
+    props.voteAnecdote(voted)
     props.setMessage('You voted "' + voted.content + '"')
     setTimeout(() => props.hideMessage(), 5000)
   }
