@@ -49,6 +49,16 @@
       "content": "Does this still work?",
       "votes": 0,
       "id": "gxZwCvS"
+    },
+    {
+      "content": "Does thunk & async addAnecdote work?",
+      "votes": 0,
+      "id": "q2UujGy"
+    },
+    {
+      "content": "It works!",
+      "votes": 0,
+      "id": "aT4JejH"
     }
   ]
 }

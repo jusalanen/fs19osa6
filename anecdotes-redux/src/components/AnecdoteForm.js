@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { newAnecdote } from '../reducers/anecdoteReducer'
 import { setMessage, hideMessage } from '../reducers/notificationReducer'
-import anecdoteService from '../services/anecdotes'
 
 const AnecdoteForm = (props) => {
   
@@ -11,8 +10,7 @@ const AnecdoteForm = (props) => {
     const content = event.target.anecdote.value
     if (content !== '') {
       event.target.anecdote.value = ''
-      const created = await anecdoteService.createNew(content)
-      props.newAnecdote(created)
+      props.newAnecdote(content)
       props.setMessage('You added "' + content + '"')
       setTimeout(() => props.hideMessage(), 5000)
     }   
