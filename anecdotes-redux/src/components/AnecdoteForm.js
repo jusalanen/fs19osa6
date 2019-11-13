@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { newAnecdote } from '../reducers/anecdoteReducer'
-import { setMessage, hideMessage } from '../reducers/notificationReducer'
+import { setMessage } from '../reducers/notificationReducer'
 
 const AnecdoteForm = (props) => {
   
@@ -11,8 +11,7 @@ const AnecdoteForm = (props) => {
     if (content !== '') {
       event.target.anecdote.value = ''
       props.newAnecdote(content)
-      props.setMessage('You added "' + content + '"')
-      setTimeout(() => props.hideMessage(), 5000)
+      props.setMessage(`You added '${content}'`, 5)
     }   
   }
   
@@ -29,8 +28,7 @@ const AnecdoteForm = (props) => {
 
 const mapDispatchToProps = {
   newAnecdote,
-  setMessage,
-  hideMessage
+  setMessage
 }
 
 export default connect(
